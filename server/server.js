@@ -41,7 +41,7 @@ function loadHtml(id, callback) {
             let html = $("#contents").html() || '';
             if (!html) {
                 $("#at").find('a').each(function (i, e) {
-                    html+=`<p onclick="window.map.httpData('${$(e).attr("href").replace("http://www.23us.so","")}')" >${$(e).text()}</p>`
+                    html+=`<p class="title" onclick="window.map.httpData('${$(e).attr("href").replace("http://www.23us.so","")}')" >${$(e).text()}</p>`
                 });
             }
             dataJson.txt = html;

@@ -2,7 +2,7 @@
     <div class="hello">
         <h3>{{title}}</h3>
         <p v-html="txt"></p>
-        <div  class="footer">
+        <div class="footer">
             <span v-for="item in ctrols" @click="httpData(item.link)">{{ item.name}}</span>
         </div>
     </div>
@@ -33,23 +33,23 @@
             httpData(path) {
                 const arr = path.split("/");
                 const self = this;
-                if(!isNaN(parseInt(arr[arr.length-1].split(".")[0]))){
+                if (!isNaN(parseInt(arr[arr.length - 1].split(".")[0]))) {
                     Api.getTxts(path).then(res => {
                         self.title = res.title;
                         self.txt = res.txt;
                         self.ctrols = res.ctrols;
                         localStorage.setItem("curPath", path);
                         self.$nextTick(() => {
-                            window.scrollTo(0,0)
+                            window.scrollTo(0, 0)
                         })
                     })
-                }else{
+                } else {
                     Api.getTxts(path).then(res => {
                         self.title = res.title;
                         self.txt = `<table>${res.txt}</table>`;
                         self.ctrols = res.ctrols;
                         self.$nextTick(() => {
-                            window.scrollTo(0,0)
+                            window.scrollTo(0, 0)
                         })
                     })
                 }
@@ -60,16 +60,18 @@
 
 
 <style scoped>
-    h3{
+    h3 {
         margin: 0;
         padding: 10px;
         text-align: center;
     }
-    p{
+
+    p {
         font-size: 16px;
         padding: 8px;
         line-height: 1.7em;
     }
+
     .hello {
         background-color: rgba(199, 238, 206, 0.85);
     }
@@ -84,5 +86,10 @@
         margin-left: 8px;
         border-radius: 6px;
         border: 1px solid #ccc;
+        cursor: pointer;
+    }
+
+    .title {
+        cursor: pointer;
     }
 </style>
