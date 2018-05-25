@@ -35,7 +35,7 @@
         },
         created() {
             window.map = this;
-            this.curPath = localStorage.getItem("curPath") || '/files/article/html/14/14949/7797534.html';
+            this.curPath = localStorage.getItem("curPath") || '/files/article/html/14/14949/index.html';
             this.httpData(this.curPath);
         },
         methods: {
