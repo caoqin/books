@@ -1,9 +1,17 @@
 <template>
     <div class="hello">
+        <div class="url" @click="showInput">url</div>
         <h3>{{title}}</h3>
         <p v-html="txt"></p>
         <div class="footer">
             <span v-for="item in ctrols" @click="httpData(item.link)">{{ item.name}}</span>
+        </div>
+        <div class="mask" v-show="showUrl">
+            <input v-model="curPath"/>
+            <div class="mask-f">
+                <button @click="sureInput">确定</button>
+                <button @click="showInput">取消</button>
+            </div>
         </div>
     </div>
 </template>
@@ -18,6 +26,7 @@
         },
         data() {
             return {
+                showUrl: false,
                 curPath: "",
                 title: "",
                 txt: "",
@@ -30,6 +39,13 @@
             this.httpData(this.curPath);
         },
         methods: {
+            showInput() {
+                this.showUrl = !this.showUrl;
+            },
+            sureInput() {
+                this.httpData( this.curPath);
+                this.showInput();
+            },
             httpData(path) {
                 const arr = path.split("/");
                 const self = this;
@@ -91,5 +107,56 @@
 
     .title {
         cursor: pointer;
+    }
+
+    .url {
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        background: #b77f7f66;
+        border-radius: 0 0 0 25px;
+        color: aliceblue;
+    }
+
+    .mask {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        background-color: rgba(245, 245, 220, 0.66);
+    }
+
+    .mask-f {
+        text-align: center;
+    }
+
+    input {
+        width: 80%;
+        margin: 25% 0 10px 10%;
+        padding: 12px;
+        border-radius: 10px;
+        outline: none;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        outline: none;
+        padding: 8px 20px;
+        margin: 10px;
+        text-align: center;
+        background-color: #9799da;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    input:active,
+    button:active {
+        border: 1px solid #ccc;
+        outline: none;
     }
 </style>
