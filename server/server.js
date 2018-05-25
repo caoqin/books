@@ -2,7 +2,7 @@ const cheerio = require("cheerio");
 const http = require('http');
 const url = require('url');
 
-const hostname = 'localhost';
+const hostname = '0.0.0.0';
 const port = 1618;
 const userPath = "http://www.23us.so";
 
