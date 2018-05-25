@@ -114,7 +114,7 @@
         padding: 12px;
         top: 0;
         right: 0;
-        background: #b77f7f66;
+        background: rgba(183, 127, 127, 0.4);
         border-radius: 0 0 0 25px;
         color: aliceblue;
         cursor: pointer;
