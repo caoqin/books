@@ -75,7 +75,7 @@
 </script>
 
 
-<style scoped>
+<style>
     h3 {
         margin: 0;
         padding: 10px;
@@ -117,6 +117,7 @@
         background: #b77f7f66;
         border-radius: 0 0 0 25px;
         color: aliceblue;
+        cursor: pointer;
     }
 
     .mask {
